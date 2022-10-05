@@ -21,6 +21,6 @@ jobs:
           node-version: '16'
           cache: 'npm'
       - run: npm install
-      - run: google-chrome --version
       - run: npm install -g chromedriver
+      - run: npm run dev
       - run: npm run test
