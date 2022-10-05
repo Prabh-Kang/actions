@@ -8,9 +8,9 @@ describe("App Component", () => {
     await driver.navigate().to("http://localhost:5173");
   })
 
-  afterAll(async() => {
-    await driver.close();
-  })
+  // afterAll(async() => {
+  //   await driver.close();
+  // })
 
   it("should fetch the posts", async() => {
     // await driver.wait(async() => {
