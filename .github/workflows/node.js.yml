@@ -28,6 +28,7 @@ jobs:
           node-version: '16'
           cache: 'npm'
       - run: npm install
+      - run: npm uninstall -g chromedriver
       - run: npm install -g chromedriver
       - run: npm run test
     
