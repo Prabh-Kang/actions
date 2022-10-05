@@ -14,13 +14,6 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    container:
-      image: node:16
-
-    services:
-      selenium:
-        image: selenium/standalone-chrome
-
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -28,15 +21,5 @@ jobs:
           node-version: '16'
           cache: 'npm'
       - run: npm install
-      - run: apt-get install default-jre
-      - run: apt-get -f install
-      - run: apt-get install chromium-browser
-      - run: npm uninstall -g chromedriver
       - run: npm install -g chromedriver
       - run: npm run test
-    
-      - uses: actions/upload-artifact@v2
-        if: always()
-        with:
-          name: screenshots
-          path: screenshots/
