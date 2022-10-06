@@ -19,6 +19,6 @@ mockServer.get('/posts', (req, res) => {
   res.json(responseData.posts)
 })
 
-mockServer.listen(port, () => {
+mockServer.listen(3000, () => {
   console.log(`Server is listening on port 3000`);
 });
