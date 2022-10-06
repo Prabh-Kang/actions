@@ -1,6 +1,6 @@
-const jsonServer = require('json-server');
-const {bodyParser} = require('json-server');
-const fs = require('fs');
+import jsonServer from 'json-server';
+const {bodyParser} = jsonServer;
+import fs from 'fs';
 
 const mockServer = jsonServer.create();
 const middlewares = jsonServer.defaults();
