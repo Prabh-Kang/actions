@@ -8,7 +8,7 @@ describe("App Component", () => {
     const options = new chrome.Options();
     options.addArguments('headless');
     driver = await new webdriver.Builder().forBrowser(webdriver.Browser.CHROME).setChromeOptions(options).build();
-    await driver.navigate().to("http://localhost:5173");
+    await driver.navigate().to("http://localhost:8080");
   })
 
   // afterAll(async() => {
