@@ -24,7 +24,28 @@ describe("App Component", () => {
     const posts = await driver.findElements(By.css("li"));
     expect(posts.length).toBe(1)
     expect(await posts[0].getText()).toBe("json-server");
-    // expect(1).toBe(1)
+    const ul = await driver.findElements(By.css("ul"));
+    expect(ul.length).toBe(1)
+  })
+  it("should fetch the posts", async() => {
+    await driver.wait(async() => {
+      const posts = await driver.findElements(By.css("li"));
+      return posts.length !==0;
+    })
+    const posts = await driver.findElements(By.css("li"));
+    expect(posts.length).toBe(1)
+    expect(await posts[0].getText()).toBe("json-server");
+    const ul = await driver.findElements(By.css("ul"));
+    expect(ul.length).toBe(1)
+  })
+  it("should fetch the posts", async() => {
+    await driver.wait(async() => {
+      const posts = await driver.findElements(By.css("li"));
+      return posts.length !==0;
+    })
+    const posts = await driver.findElements(By.css("li"));
+    expect(posts.length).toBe(1)
+    expect(await posts[0].getText()).toBe("json-server");
     const ul = await driver.findElements(By.css("ul"));
     expect(ul.length).toBe(1)
   })
