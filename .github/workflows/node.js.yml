@@ -25,6 +25,11 @@ jobs:
           node-version: '16'
           cache: 'npm'
       - run: npm install
+      - run: npm install -g chromedriver
+      - run: npm install -g serve
+      - run: npm install -g pm2
+      - run: npm run build
+      - run: pm2 serve dist 8080 --name=ReactApp
       - run: npm run test
       - uses: actions/upload-artifact@v2
         if: always()
