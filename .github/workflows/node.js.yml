@@ -11,13 +11,6 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
 
-    container:
-      image: node:16
-
-    services:
-      selenium:
-        image: selenium/standalone-chrome
-
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -25,7 +18,9 @@ jobs:
           node-version: '16'
           cache: 'npm'
       - run: npm install
-      - run: apt install chromium-chromedriver
+      - run: npm install -g chromedriver
+      - run: chromedriver --version
+      - run: google-chrome --version
       - run: npm install -g serve
       - run: npm install -g pm2
       - run: npm run build
