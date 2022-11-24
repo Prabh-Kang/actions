@@ -1,0 +1,28 @@
+name: Selenium workflow
+
+on: workflow_dispatch
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          cache: 'npm'
+      - run: npm install
+      - run: npm install -g chromedriver
+      - run: npm install -g serve
+      - run: npm install -g pm2
+      - run: pm2 start npm --name=ReactApp -- run "dev"
+      - run: pm2 start src/mockServer/server.js --name=MockServer -- --port=3000
+      - run: npm run test
+      - run: pm2 delete all
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: screenshots
+          path: screenshots/
