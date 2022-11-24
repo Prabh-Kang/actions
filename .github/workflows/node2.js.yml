@@ -1,4 +1,4 @@
-name: Selenium workflow
+name: Selenium workflow 2
 
 on: workflow_dispatch
 
