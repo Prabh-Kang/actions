@@ -18,7 +18,7 @@ jobs:
       - run: npm install -g serve
       - run: npm install -g pm2
       - run: pm2 start npm --name=ReactApp -- run "dev" --port=5176
-      - run: pm2 start src/mockServer/server.js --name=MockServer -- --port=3000
+      - run: pm2 start node src/mockServer/server.js --name=MockServer -- --port=3000
       - run: npm run test
       - run: pm2 delete all
       - uses: actions/upload-artifact@v2
