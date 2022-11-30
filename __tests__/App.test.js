@@ -23,7 +23,7 @@ describe("App Component", () => {
     })
     const posts = await driver.findElements(By.css("li"));
     expect(posts.length).toBe(1)
-    expect(await posts[0].getText()).toBe("json-server");
+    expect(await posts[0].getText()).toBe("json-serverss");
     const ul = await driver.findElements(By.css("ul"));
     expect(ul.length).toBe(1)
   })
