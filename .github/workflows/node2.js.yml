@@ -14,7 +14,7 @@ jobs:
           node-version: '16'
           cache: 'npm'
       - name: Save output logs
-        uses: actions/download-artifact@v3
+        uses: actions/upload-artifact@v3
         with:
           name: logs
           path: output.txt
