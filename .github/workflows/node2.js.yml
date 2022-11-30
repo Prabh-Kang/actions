@@ -10,10 +10,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
-      - uses: actions/download-artifact@v3
         with:
           node-version: '16'
           cache: 'npm'
+      - uses: actions/download-artifact@v3
+        with:
+          name: logs
+          path: output/
       - run: npm install
       - run: npm install -g chromedriver
       - run: npm install -g serve
@@ -23,8 +26,3 @@ jobs:
       - run: lsof -i ":3000"
       - run: npm run test
       - run: pm2 delete all
-      - uses: actions/upload-artifact@v2
-        if: always()
-        with:
-          name: logs
-          path: outputLogs/
