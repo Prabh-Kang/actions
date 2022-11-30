@@ -13,14 +13,14 @@ jobs:
         with:
           node-version: '16'
           cache: 'npm'
-      - name: Save output logs
-        uses: actions/upload-artifact@v3
-        with:
-          name: logs
-          path: db.json
       - run: npm install
       - run: npm install -g pm2
       - run: pm2 start npm --name=ReactApp -- run "dev" --port=5176
       - run: pm2 start src/mockServer/server.js --name=MockServer -- --port=3000
       - run: npm run test
+      - name: Save output logs
+        uses: actions/upload-artifact@v3
+        with:
+          name: logs
+          path: db.json
       - run: pm2 delete all
