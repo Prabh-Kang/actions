@@ -10,6 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
+      - uses: actions/download-artifact@v3
         with:
           node-version: '16'
           cache: 'npm'
@@ -25,5 +26,5 @@ jobs:
       - uses: actions/upload-artifact@v2
         if: always()
         with:
-          name: screenshots
-          path: screenshots/
+          name: logs
+          path: outputLogs/
