@@ -22,5 +22,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: echo ${{secrets.MYNAME}}
+    - run: sudo touch .env
+    - run: echo ${{secrets.MYNAME}} >> .env
+    - run: cat .env
     - run: pwd
